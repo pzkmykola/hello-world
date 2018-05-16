@@ -1,7 +1,7 @@
 /**
  * @file znet.h
  * @date 16 Mar 2018
- * @brief TBD.
+ * @brief Test file.
  */
 
 #ifndef ZNET_H
