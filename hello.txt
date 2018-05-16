@@ -1,1 +1,2 @@
 https://git-scm.com/book/ru/v1/Введение-Основы-Git
+session on asus notebook - test
