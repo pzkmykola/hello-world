@@ -1,6 +1,6 @@
 /**
  * @file znet_cmd_binary_switch.c
- * @date 16 May 2018
+ * @date 2 May 2018
  * @brief TBD.
  */
 
@@ -358,7 +358,7 @@ void znet_cc_configuration_info_report( const ZFunction func, uint8_t node_id,
         return;
     //TBD: consider usage of cc_data[4] -> Reports to follow
 
-    uint16_t info_count = ((uint16_t)(cc_data[2] << 8)) | cc_data[3];
+    uint16_t info_count = ((uint16_t)cc_data[2] << 8) | cc_data[3];
     assert( cc_data_len >= ZNET_CMD_CONFIGURATION_NIP_REPORT_CHECK_LEN + info_count );
 
     const size_t buff_size = sizeof( znet_configuration_info_report_t ) + info_count;
@@ -439,7 +439,7 @@ void znet_cc_configuration_properties_report( const ZFunction func, uint8_t node
     znet_configuration_properties_report_t* prop_report =
         (znet_configuration_properties_report_t*)&buff;
     prop_report->param_number = param_num;
-    prop_report->data_format = ( cc_data[4] & CONFIGURATION_PROPERTIES_REPORT_PROPERTIES1_FORMAT_MASK_V4 ) >> \
+    prop_report->data_format = ( cc_data[4] & CONFIGURATION_PROPERTIES_REPORT_PROPERTIES1_FORMAT_MASK_V4 ) >>
         CONFIGURATION_PROPERTIES_REPORT_PROPERTIES1_FORMAT_SHIFT_V4;
     prop_report->data_size = cc_data[4] & CONFIGURATION_PROPERTIES_REPORT_PROPERTIES1_SIZE_MASK_V4;
     for (int i = 0; i < ( param_size + 2 ); i++)
